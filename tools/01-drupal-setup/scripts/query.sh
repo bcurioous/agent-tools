@@ -3,6 +3,8 @@
 TOOL_NAME="drupal-setup"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TOOL_DIR="$(dirname "$SCRIPT_DIR")"
+PROJECT_ROOT="$(cd "$TOOL_DIR/../.." && pwd)"
+DRUPAL_ROOT="$PROJECT_ROOT/workspace/drupal-setup"
 
 check_dependencies() {
     if ! command -v ddev &>/dev/null; then
@@ -18,6 +20,13 @@ check_dependencies() {
         echo "---"
         return 1
     fi
+
+    cd "$DRUPAL_ROOT" 2>/dev/null || {
+        echo "TOOL:$TOOL_NAME:QUERY:health"
+        echo "STATUS:unhealthy:project_not_initialized"
+        echo "---"
+        return 1
+    }
 
     if ! ddev describe &>/dev/null 2>&1; then
         echo "TOOL:$TOOL_NAME:QUERY:health"

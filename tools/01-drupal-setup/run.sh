@@ -42,7 +42,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Standard environment variables (from tool-spec)
 export TOOL_WORKSPACE_ROOT="${TOOL_WORKSPACE_ROOT:-$SCRIPT_DIR/workspace}"
-export PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$SCRIPT_DIR/../../.." && pwd)}"
+export PROJECT_ROOT="${PROJECT_ROOT:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
 export TOOL_SHARED_ROOT="${TOOL_SHARED_ROOT:-$PROJECT_ROOT/workspace/$TOOL_NAME}"
 export TOOL_REGISTRY="${TOOL_REGISTRY:-$PROJECT_ROOT/tool-registry.yaml}"
 
