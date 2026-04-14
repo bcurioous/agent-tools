@@ -1,0 +1,55 @@
+{
+    "name": "drupal/recommended-project",
+    "description": "Drupal 11 recommended project with essential modules",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=8.3",
+        "composer/installers": "^2.0",
+        "drupal/admin_toolbar": "^3.6",
+        "drupal/admin_toolbar_tools": "^3.6",
+        "drupal/classy": "^1.0",
+        "drupal/core-composer-scaffold": "^11",
+        "drupal/core-project-message": "^11",
+        "drupal/core-recommended": "^11",
+        "drupal/devel": "^5.5",
+        "drupal/honeypot": "^2.2",
+        "drupal/metatag": "^2.2",
+        "drupal/pathauto": "^1.14",
+        "drupal/stable": "^1.0",
+        "drupal/token": "^1.17",
+        "drush/drush": "^13.7"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

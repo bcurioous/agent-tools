@@ -1,0 +1,56 @@
+# Tool Specs Project - Git Ignore
+
+# ==============================================================================
+# TOOL LAYER - Never commit tool working directories
+# ==============================================================================
+
+# Tool's own isolated workspace (Layer 1)
+tools/*/workspace/
+tools/*/workspace
+
+# Tool's shared output that is generated/working (Layer 2)
+workspace/
+workspace
+
+# Tool execution artifacts
+*.log
+logs/
+*.tmp
+*.temp
+temp/
+.tmp/
+
+# ==============================================================================
+# BROWSER/AUTOMATION STATE - Never commit session state
+# ==============================================================================
+
+.playwright-cli/
+.playwright/
+playwright/
+*.playwright.*
+
+# ==============================================================================
+# OS/EDITOR ARTIFACTS
+# ==============================================================================
+
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# ==============================================================================
+# SECRETS - Never commit credentials
+# ==============================================================================
+
+*.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+id_rsa*
